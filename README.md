@@ -5,33 +5,32 @@ Short description and motivation.
 ```ruby
 
 # sentence recognition
-TxAsr::SentenceRecognition.from(audio_url)
+result = TxAsr::SentenceRecognition.from(audio_url)
 
+if result.success?
+  p result.data
+end
 ```
 
 ## Installation
-Add this line to your application's Gemfile:
+1. 在 Gemfile 里边添加如下代码
 
 ```ruby
 gem 'tx_asr'
 ```
 
-And then execute:
+2. 执行 bundle
+
 ```bash
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install tx_asr
-```
-
-execute install command
+3. 执行安装命令
 ```bash
 $ rails g tx_asr:install
 ```
 
-then change then `secret_id` and `secret_key` in `config/initializers/tx_ar
+4. 修改 `config/initializers/tx_asr.rb` 中 `secret_id` 和 `secret_key` 为实际的值
 
 
 ## Contributing
