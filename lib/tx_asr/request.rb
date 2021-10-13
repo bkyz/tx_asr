@@ -3,7 +3,6 @@ module TxAsr
   class Request
     def initialize(payload)
       @payload = default_payload.merge(payload)
-      p @payload
     end
 
     def call(action)
@@ -60,10 +59,6 @@ module TxAsr
       resp = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
         http.request(req, @payload.to_json)
       end
-
-      p "===="
-      p JSON.parse(resp.body)
-      p "===="
 
       if resp.is_a? Net::HTTPSuccess
         JSON.parse(resp.body).with_indifferent_access
